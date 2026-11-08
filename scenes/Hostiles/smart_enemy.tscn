@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cung7uny6bxf4"]
+
+[ext_resource type="Texture2D" uid="uid://kh4bxni4l43t" path="res://assets/sprites/slime_purple.png" id="1_k8p8x"]
+[ext_resource type="Script" uid="uid://c726p72y286o" path="res://scripts/smart_enemy.gd" id="1_k8uyo"]
+[ext_resource type="PackedScene" uid="uid://c2kyj3nkgh56w" path="res://scenes/Hostiles/killzone.tscn" id="2_0cxcd"]
+[ext_resource type="PackedScene" uid="uid://c24w37hs8au4d" path="res://scenes/Hostiles/beehave_tree.tscn" id="3_k8uyo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvm17"]
+atlas = ExtResource("1_k8p8x")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yk8o"]
+atlas = ExtResource("1_k8p8x")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el2wj"]
+atlas = ExtResource("1_k8p8x")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulnl0"]
+atlas = ExtResource("1_k8p8x")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_suk2g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvm17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yk8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el2wj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulnl0")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_suk2g"]
+radius = 55.226807
+
+[node name="SmartEnemy" type="Node2D" unique_id=2033534830 groups=["enemy"]]
+script = ExtResource("1_k8uyo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=337519927]
+sprite_frames = SubResource("SpriteFrames_suk2g")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.6729256
+
+[node name="Killzone" parent="." unique_id=1669501474 instance=ExtResource("2_0cxcd")]
+
+[node name="BeehaveTree" parent="." unique_id=2125235702 node_paths=PackedStringArray("blackboard") instance=ExtResource("3_k8uyo")]
+actor_node_path = NodePath("..")
+blackboard = NodePath("@Node@22714")
+
+[node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=368031182]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=1064952296]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_suk2g")
+
+[node name="GroundCheckers" type="Node2D" parent="." unique_id=1146612140]
+
+[node name="GroundCheckRight" type="RayCast2D" parent="GroundCheckers" unique_id=541971341]
+
+[node name="GroundCheckLeft" type="RayCast2D" parent="GroundCheckers" unique_id=452631957]
