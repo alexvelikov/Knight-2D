@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bi3rmtoneqqbm"]
+[gd_scene format=3 uid="uid://klao8wwyg3fl"]
 
 [ext_resource type="Script" uid="uid://dnebt6ycljc7e" path="res://scripts/slime.gd" id="1_n6pvg"]
 [ext_resource type="Texture2D" uid="uid://b0v0o6sesk01x" path="res://assets/sprites/slime_green.png" id="1_p2gj0"]
-[ext_resource type="PackedScene" uid="uid://c2kyj3nkgh56w" path="res://scenes/killzone.tscn" id="2_n6pvg"]
+[ext_resource type="PackedScene" uid="uid://c2kyj3nkgh56w" path="res://scenes/Hostiles/killzone.tscn" id="2_n6pvg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjw23"]
 atlas = ExtResource("1_p2gj0")
@@ -43,7 +43,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1ka0"]
 size = Vector2(12, 14)
 
-[node name="Slime" type="Node2D" unique_id=366112264]
+[node name="SimpleEnemy" type="Node2D" unique_id=366112264]
 position = Vector2(0, 2)
 script = ExtResource("1_n6pvg")
 

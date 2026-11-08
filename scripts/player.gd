@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
+const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 var is_alive:bool
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -36,5 +36,7 @@ func _physics_process(delta: float) -> void:
 	
 	else:
 		animated_sprite.play("Death")
+		velocity.x = 0
+		velocity.y += 30
 	
 	move_and_slide()

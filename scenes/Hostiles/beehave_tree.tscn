@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c24w37hs8au4d"]
+
+[ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/addons/beehave/nodes/beehave_tree.gd" id="1_n0403"]
+[ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/addons/beehave/nodes/composites/selector.gd" id="2_84vto"]
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/addons/beehave/nodes/composites/sequence.gd" id="3_cc0vs"]
+[ext_resource type="Script" uid="uid://btjuktk0e1w54" path="res://scripts/EnemyAI/check_for_player.gd" id="4_y2dmj"]
+[ext_resource type="Script" uid="uid://bhxv27sdhe4pr" path="res://scripts/EnemyAI/step_towards_target.gd" id="5_cc0vs"]
+[ext_resource type="Script" uid="uid://dwg6xp3gw3oxw" path="res://scripts/EnemyAI/patrol.gd" id="6_y2dmj"]
+
+[node name="AI" type="Node" unique_id=2125235702 node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_n0403")
+blackboard = NodePath("@Node@86589")
+actor = NodePath("")
+metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
+
+[node name="HostileRangeSelector" type="Node" parent="." unique_id=423975863]
+script = ExtResource("2_84vto")
+metadata/_custom_type_script = "uid://8hn4kne15ac5"
+
+[node name="TryStepTowardsTarget" type="Node" parent="HostileRangeSelector" unique_id=1295754229]
+script = ExtResource("3_cc0vs")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="IfTargetExists" type="Node" parent="HostileRangeSelector/TryStepTowardsTarget" unique_id=644383660]
+script = ExtResource("4_y2dmj")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
+
+[node name="StepTowardsTarget" type="Node" parent="HostileRangeSelector/TryStepTowardsTarget" unique_id=164246667]
+script = ExtResource("5_cc0vs")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="Patrol" type="Node" parent="HostileRangeSelector" unique_id=462755156]
+script = ExtResource("6_y2dmj")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
