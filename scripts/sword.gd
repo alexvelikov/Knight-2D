@@ -32,6 +32,5 @@ func attack():
 	await animation.animation_finished
 
 func _on_swing_animation_finished():
-	print("animation finished")
 	if animation.animation == &"Swing":
 		animation.play("Idle")
