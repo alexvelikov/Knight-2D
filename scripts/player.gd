@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+#fuck
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sword: Area2D = $Sword
 @onready var health_manager: HealthManager = $HealthManager
