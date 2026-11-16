@@ -1,0 +1,196 @@
+[gd_resource type="Resource" script_class="AIToolAccessProfile" format=3 uid="uid://b2ao6degjmwas"]
+
+[ext_resource type="Resource" uid="uid://c70odgy8wpy2k" path="res://addons/ai_assistant_hub/tools/_scene/move_copy_node.tres" id="1_knr06"]
+[ext_resource type="Script" uid="uid://dbymf87qfcgua" path="res://addons/ai_assistant_hub/tools/ai_tool_access.gd" id="2_xrod4"]
+[ext_resource type="Resource" uid="uid://b7nvbu8m0k8no" path="res://addons/ai_assistant_hub/tools/_file/read_file.tres" id="3_jq2d4"]
+[ext_resource type="Resource" uid="uid://rgp4wqqyxqtc" path="res://addons/ai_assistant_hub/tools/_code/show_code.tres" id="4_rthmw"]
+[ext_resource type="Resource" uid="uid://d30rt3uehw4mt" path="res://addons/ai_assistant_hub/tools/_file/scan_directory.tres" id="5_0vx56"]
+[ext_resource type="Resource" uid="uid://chlv1ans1c3kg" path="res://addons/ai_assistant_hub/tools/_code/replace_code.tres" id="6_rpgen"]
+[ext_resource type="Resource" uid="uid://deoehr0oonua0" path="res://addons/ai_assistant_hub/tools/_code/delete_code.tres" id="7_k6dbf"]
+[ext_resource type="Resource" uid="uid://c43hdnlmuq7pr" path="res://addons/ai_assistant_hub/tools/_code/append_code.tres" id="8_k8o2n"]
+[ext_resource type="Resource" uid="uid://dp0w6b0vfqxn1" path="res://addons/ai_assistant_hub/tools/_general/undo.tres" id="9_pe8m5"]
+[ext_resource type="Resource" uid="uid://byookgeneiey1" path="res://addons/ai_assistant_hub/tools/_scene/show_scene_node.tres" id="10_vok12"]
+[ext_resource type="Resource" uid="uid://dh1gr7k1ad6tp" path="res://addons/ai_assistant_hub/tools/_code/create_script.tres" id="11_tnx13"]
+[ext_resource type="Resource" uid="uid://dp8y32ir8wi3b" path="res://addons/ai_assistant_hub/tools/_project/manage_global_groups.tres" id="12_12kgy"]
+[ext_resource type="Resource" uid="uid://chofputvo0bec" path="res://addons/ai_assistant_hub/tools/_project/list_global_groups.tres" id="13_5xgym"]
+[ext_resource type="Resource" uid="uid://b08uslbbanarn" path="res://addons/ai_assistant_hub/tools/_scene/add_node_from_scene.tres" id="14_caev0"]
+[ext_resource type="Resource" uid="uid://cwgmfg5pt0hxy" path="res://addons/ai_assistant_hub/tools/_resource/get_resource_properties.tres" id="15_736pk"]
+[ext_resource type="Resource" uid="uid://cfjre8o1pj6he" path="res://addons/ai_assistant_hub/tools/_file/create_text_file.tres" id="16_8qyfd"]
+[ext_resource type="Resource" uid="uid://cg7kynoqk4hwm" path="res://addons/ai_assistant_hub/tools/_scene/create_scene.tres" id="17_naom4"]
+[ext_resource type="Resource" uid="uid://c8dhogprgeaul" path="res://addons/ai_assistant_hub/tools/_scene/scan_scene_node_tree.tres" id="18_p046f"]
+[ext_resource type="Resource" uid="uid://degjy1vdp60nt" path="res://addons/ai_assistant_hub/tools/_scene/get_node_properties.tres" id="19_wifa2"]
+[ext_resource type="Resource" uid="uid://csm3x4mhgl877" path="res://addons/ai_assistant_hub/tools/_scene/edit_node_properties.tres" id="20_fgphg"]
+[ext_resource type="Resource" uid="uid://haj1msfwmesa" path="res://addons/ai_assistant_hub/tools/_scene/edit_node_signals.tres" id="21_mhmij"]
+[ext_resource type="Resource" uid="uid://dfcpa84lh8jww" path="res://addons/ai_assistant_hub/tools/_scene/add_node_from_class.tres" id="22_euq7h"]
+[ext_resource type="Resource" uid="uid://dm1ndjq8flavc" path="res://addons/ai_assistant_hub/tools/_scene/delete_node.tres" id="23_gyjsv"]
+[ext_resource type="Resource" uid="uid://dsfljbcka5l84" path="res://addons/ai_assistant_hub/tools/_general/save_all.tres" id="24_xcs6q"]
+[ext_resource type="Resource" uid="uid://ddxmjlosyymta" path="res://addons/ai_assistant_hub/tools/_file/create_directory.tres" id="25_or8ow"]
+[ext_resource type="Resource" uid="uid://bp2syqikgietr" path="res://addons/ai_assistant_hub/tools/_resource/create_external_resource.tres" id="26_tjt0q"]
+[ext_resource type="Resource" uid="uid://beq1yo303ejlb" path="res://addons/ai_assistant_hub/tools/_resource/edit_resource_properties.tres" id="27_26oaf"]
+[ext_resource type="Resource" uid="uid://dj8sfjv1l8wpx" path="res://addons/ai_assistant_hub/tools/_scene/get_node_signals.tres" id="28_3c36p"]
+[ext_resource type="Resource" uid="uid://ba8cto16wtmbc" path="res://addons/ai_assistant_hub/tools/_scene/get_node_groups.tres" id="29_6j8cp"]
+[ext_resource type="Resource" uid="uid://brnv6sqvsgqh4" path="res://addons/ai_assistant_hub/tools/_scene/edit_node_groups.tres" id="30_amymd"]
+[ext_resource type="Script" uid="uid://cqqfmfk8ipjxj" path="res://addons/ai_assistant_hub/tools/ai_tool_access_profile.gd" id="31_3rdg7"]
+
+[sub_resource type="Resource" id="Resource_27uan"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_mty3t"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+option_values = {
+"allowed_paths": [],
+"extended_prompt": "",
+"prohibited_paths": []
+}
+
+[sub_resource type="Resource" id="Resource_rpgq8"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+
+[sub_resource type="Resource" id="Resource_su0gx"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+
+[sub_resource type="Resource" id="Resource_8crm6"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_k1jcb"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_6pcbx"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_vlxs5"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_2yx5f"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+
+[sub_resource type="Resource" id="Resource_3833b"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_bkvgp"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_a6x2m"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+
+[sub_resource type="Resource" id="Resource_ftmle"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_6thb3"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+
+[sub_resource type="Resource" id="Resource_4ydne"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_k034y"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_nwkpv"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+
+[sub_resource type="Resource" id="Resource_7fup5"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+
+[sub_resource type="Resource" id="Resource_n6gdl"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_rt7kh"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_4t1x0"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_eusl8"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_lx784"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_wfoge"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_uhyl0"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_ode5o"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[sub_resource type="Resource" id="Resource_aduqx"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+
+[sub_resource type="Resource" id="Resource_1chug"]
+script = ExtResource("2_xrod4")
+usage_permission = 2
+
+[sub_resource type="Resource" id="Resource_f3aj1"]
+script = ExtResource("2_xrod4")
+usage_permission = 1
+
+[resource]
+script = ExtResource("31_3rdg7")
+permissions = {
+ExtResource("30_amymd"): SubResource("Resource_f3aj1"),
+ExtResource("29_6j8cp"): SubResource("Resource_1chug"),
+ExtResource("28_3c36p"): SubResource("Resource_aduqx"),
+ExtResource("27_26oaf"): SubResource("Resource_ode5o"),
+ExtResource("26_tjt0q"): SubResource("Resource_uhyl0"),
+ExtResource("25_or8ow"): SubResource("Resource_wfoge"),
+ExtResource("24_xcs6q"): SubResource("Resource_lx784"),
+ExtResource("23_gyjsv"): SubResource("Resource_eusl8"),
+ExtResource("22_euq7h"): SubResource("Resource_4t1x0"),
+ExtResource("21_mhmij"): SubResource("Resource_rt7kh"),
+ExtResource("20_fgphg"): SubResource("Resource_n6gdl"),
+ExtResource("19_wifa2"): SubResource("Resource_7fup5"),
+ExtResource("18_p046f"): SubResource("Resource_nwkpv"),
+ExtResource("17_naom4"): SubResource("Resource_k034y"),
+ExtResource("16_8qyfd"): SubResource("Resource_4ydne"),
+ExtResource("15_736pk"): SubResource("Resource_6thb3"),
+ExtResource("14_caev0"): SubResource("Resource_ftmle"),
+ExtResource("13_5xgym"): SubResource("Resource_a6x2m"),
+ExtResource("12_12kgy"): SubResource("Resource_bkvgp"),
+ExtResource("11_tnx13"): SubResource("Resource_3833b"),
+ExtResource("10_vok12"): SubResource("Resource_2yx5f"),
+ExtResource("9_pe8m5"): SubResource("Resource_vlxs5"),
+ExtResource("8_k8o2n"): SubResource("Resource_6pcbx"),
+ExtResource("7_k6dbf"): SubResource("Resource_k1jcb"),
+ExtResource("6_rpgen"): SubResource("Resource_8crm6"),
+ExtResource("5_0vx56"): SubResource("Resource_su0gx"),
+ExtResource("4_rthmw"): SubResource("Resource_rpgq8"),
+ExtResource("3_jq2d4"): SubResource("Resource_mty3t"),
+ExtResource("1_knr06"): SubResource("Resource_27uan")
+}
+global_option_values = {
+"allowed_paths": ["res://scenes", "res://scripts"],
+"banned_code": "",
+"extended_prompt": "These allowed paths are where I develop the current game. There you'll find the scenes and scripts created by me",
+"prohibited_files": [],
+"prohibited_paths": [],
+"prohibited_properties": ""
+}

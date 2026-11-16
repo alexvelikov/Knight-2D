@@ -2,5 +2,6 @@ extends ActionLeaf
 
 
 func tick(actor, blackboard: Blackboard):
-	actor._step_towards_target()
+	actor.step_towards_target()
+	print("Advancing")
 	return SUCCESS

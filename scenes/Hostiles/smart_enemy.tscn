@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://c726p72y286o" path="res://scripts/smart_enemy.gd" id="1_k8uyo"]
 [ext_resource type="PackedScene" uid="uid://c2kyj3nkgh56w" path="res://scenes/Hostiles/killzone.tscn" id="2_0cxcd"]
 [ext_resource type="PackedScene" uid="uid://c24w37hs8au4d" path="res://scenes/Hostiles/beehave_tree.tscn" id="3_k8uyo"]
+[ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/Components/health_manager.tscn" id="5_lbkh4"]
+[ext_resource type="PackedScene" uid="uid://c6oorpt8h1g2i" path="res://scenes/Components/hitbox_manager.tscn" id="6_obeuo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rvm17"]
 atlas = ExtResource("1_k8p8x")
@@ -41,11 +43,18 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_suk2g"]
-radius = 55.226807
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8uyo"]
+size = Vector2(14, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k8uyo"]
+radius = 75.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suk2g"]
+size = Vector2(12, 12)
 
 [node name="SmartEnemy" type="Node2D" unique_id=2033534830 groups=["enemy"]]
 script = ExtResource("1_k8uyo")
+speed = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=337519927]
 sprite_frames = SubResource("SpriteFrames_suk2g")
@@ -55,18 +64,38 @@ frame_progress = 0.6729256
 
 [node name="Killzone" parent="." unique_id=1669501474 instance=ExtResource("2_0cxcd")]
 
-[node name="BeehaveTree" parent="." unique_id=2125235702 node_paths=PackedStringArray("blackboard") instance=ExtResource("3_k8uyo")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=441395745]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_k8uyo")
+
+[node name="BeehaveTree" parent="." unique_id=2125235702 node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("3_k8uyo")]
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@81060")
+blackboard = NodePath("@Node@114368")
+actor = NodePath("..")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=368031182]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionArea" unique_id=1064952296]
-position = Vector2(0, 5)
-shape = SubResource("CircleShape2D_suk2g")
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_k8uyo")
 
 [node name="GroundCheckers" type="Node2D" parent="." unique_id=1146612140]
 
 [node name="GroundCheckRight" type="RayCast2D" parent="GroundCheckers" unique_id=541971341]
+position = Vector2(4, 0)
 
 [node name="GroundCheckLeft" type="RayCast2D" parent="GroundCheckers" unique_id=452631957]
+position = Vector2(-4, 0)
+
+[node name="HealthManager" parent="." unique_id=1913274883 instance=ExtResource("5_lbkh4")]
+health = 30.0
+max_health = 10.0
+crit_health = 10.0
+
+[node name="HitboxManager" parent="." unique_id=484728058 instance=ExtResource("6_obeuo")]
+target_group = &"weapon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxManager" unique_id=1837612766]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_suk2g")

@@ -2,10 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://brukxo5wfuxx5" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c3ubxpp10k6x6" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://bycxbsceijgmn" path="res://scenes/sword.tscn" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("1_3vyb7")
-region = Rect2(64, 192, 32, 32)
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -96,10 +109,19 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ni07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l71n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujl30")
 }],
 "loop": 1,
 "name": &"Death",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,16 +205,23 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suk2g"]
 size = Vector2(12, 14.5)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=449617674]
-collision_layer = 2
+[node name="Player" type="CharacterBody2D" unique_id=449617674 groups=["player"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_g2els")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1448314861]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1448314861 groups=["player"]]
 position = Vector2(0, -12)
+scale = Vector2(1.25, 1.1875)
 sprite_frames = SubResource("SpriteFrames_suk2g")
 animation = &"Death"
 autoplay = "Idle"
+frame_progress = 0.51200354
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=683037646]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=683037646 groups=["player"]]
 position = Vector2(0, -7.75)
 shape = SubResource("RectangleShape2D_suk2g")
+
+[node name="Sword" parent="." unique_id=1918250943 instance=ExtResource("3_qhqgy")]
+position = Vector2(9, -9)
+scale = Vector2(0.45, 0.45)

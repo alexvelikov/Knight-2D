@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var game_manager: Node = $GameManager
 @onready var hud: CanvasLayer = $HUD
-@onready var killzone: Area2D = $Killzone
+@onready var void_zone: Area2D = $Void
 @onready var player: CharacterBody2D = $Player
 
 var score := 0

@@ -2,5 +2,5 @@ extends ActionLeaf
 
 
 func tick(actor, blackboard: Blackboard):
-	actor._patrol()
+	actor.patrol()
 	return SUCCESS
