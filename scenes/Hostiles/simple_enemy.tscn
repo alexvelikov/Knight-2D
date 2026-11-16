@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dnebt6ycljc7e" path="res://scripts/slime.gd" id="1_n6pvg"]
 [ext_resource type="Texture2D" uid="uid://b0v0o6sesk01x" path="res://assets/sprites/slime_green.png" id="1_p2gj0"]
-[ext_resource type="PackedScene" uid="uid://c2kyj3nkgh56w" path="res://scenes/Hostiles/killzone.tscn" id="2_n6pvg"]
 [ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/Components/health_manager.tscn" id="4_3kc4b"]
 [ext_resource type="PackedScene" uid="uid://c6oorpt8h1g2i" path="res://scenes/Components/hitbox_manager.tscn" id="5_15ncu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suk2g"]
+size = Vector2(10, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjw23"]
 atlas = ExtResource("1_p2gj0")
@@ -42,32 +44,26 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1ka0"]
-size = Vector2(12, 14)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1nbvc"]
 size = Vector2(10, 12)
 
-[node name="SimpleEnemy" type="Node2D" unique_id=366112264]
-position = Vector2(0, 2)
+[node name="Area2D" type="Area2D" unique_id=2044583025 groups=["enemy"]]
 script = ExtResource("1_n6pvg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1083633718]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=533245571]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_suk2g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1533695535]
 sprite_frames = SubResource("SpriteFrames_v1ka0")
 autoplay = "default"
 frame_progress = 0.4120125
 
-[node name="Killzone" parent="." unique_id=1669501474 instance=ExtResource("2_n6pvg")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=241671114]
-position = Vector2(0, 5)
-shape = SubResource("RectangleShape2D_v1ka0")
-
-[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=165814598]
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1601212075]
 position = Vector2(-12, 7)
 target_position = Vector2(0, 9)
 
-[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1523091800]
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1375550509]
 position = Vector2(12, 7)
 target_position = Vector2(0, 9)
 
@@ -78,6 +74,6 @@ max_health = 10.0
 [node name="HitboxManager" parent="." unique_id=484728058 instance=ExtResource("5_15ncu")]
 target_group = &"weapon"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxManager" unique_id=646881569]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxManager" unique_id=1663968530]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_1nbvc")

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sword: Area2D = $Sword
 @onready var health_manager: HealthManager = $HealthManager
 @onready var hitbox_manager: HitboxManager = $HitboxManager
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 @export var SPEED = 150.0
 @export var JUMP_VELOCITY = -300.0
@@ -59,3 +60,9 @@ func manage_death():
 	animated_sprite.play("Death")
 	velocity.x = 0
 	velocity.y += 30
+	collision_shape_2d.set_deferred("disabled", true)
+	Engine.time_scale = 0.5
+	await get_tree().create_timer(0.5).timeout
+	get_tree().reload_current_scene()
+	collision_shape_2d.set_deferred("disabled", false)
+	Engine.time_scale = 1

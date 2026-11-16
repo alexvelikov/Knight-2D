@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://brukxo5wfuxx5" path="res://assets/sprites/knight.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://c3ubxpp10k6x6" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://bycxbsceijgmn" path="res://scenes/sword.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/Components/health_manager.tscn" id="4_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://c6oorpt8h1g2i" path="res://scenes/Components/hitbox_manager.tscn" id="5_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("1_3vyb7")
@@ -202,8 +204,8 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_suk2g"]
-size = Vector2(12, 14.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1ka0"]
+size = Vector2(16, 19)
 
 [node name="Player" type="CharacterBody2D" unique_id=449617674 groups=["player"]]
 collision_layer = 3
@@ -218,10 +220,21 @@ animation = &"Death"
 autoplay = "Idle"
 frame_progress = 0.51200354
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=683037646 groups=["player"]]
-position = Vector2(0, -7.75)
-shape = SubResource("RectangleShape2D_suk2g")
-
 [node name="Sword" parent="." unique_id=1918250943 instance=ExtResource("3_qhqgy")]
 position = Vector2(9, -9)
 scale = Vector2(0.45, 0.45)
+
+[node name="HealthManager" parent="." unique_id=1913274883 instance=ExtResource("4_qlg0r")]
+health = 20.0
+max_health = 20.0
+
+[node name="HitboxManager" parent="." unique_id=484728058 instance=ExtResource("5_tuyoq")]
+target_group = &"enemy"
+
+[node name="Hurtbox" type="CollisionShape2D" parent="HitboxManager" unique_id=443077058]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_v1ka0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1244030536]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_v1ka0")
