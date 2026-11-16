@@ -6,7 +6,8 @@ extends Node2D
 @onready var hitbox_manager: HitboxManager = $HitboxManager
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 var direction := 1
-@export var speed := 90
+@export var speed := 90.0
+@export var damage := 10.0
 var target_in_range: Node2D = null
 
 #Called when the node enters the scene tree for the first time.

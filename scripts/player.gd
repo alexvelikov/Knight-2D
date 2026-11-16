@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sword: Area2D = $Sword
+@onready var health_manager: HealthManager = $HealthManager
+@onready var hitbox_manager: HitboxManager = $HitboxManager
 
 @export var SPEED = 150.0
 @export var JUMP_VELOCITY = -300.0
@@ -11,16 +13,12 @@ const swordPositionY = -9
 
 
 func _ready() -> void:
-	is_alive = true
+	hitbox_manager.took_damage.connect(health_manager.take_damage)
+	health_manager.died.connect(manage_death)
 
 func _physics_process(delta: float) -> void:
-	if is_alive:
-		manage_movement()
-		manage_attacking()
-	else:
-		animated_sprite.play("Death")
-		velocity.x = 0
-		velocity.y += 30
+	manage_movement()
+	manage_attacking()
 	move_and_slide()
 
 func manage_movement():
@@ -52,8 +50,12 @@ func manage_movement():
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-			
 
 func manage_attacking():
-	#if Input.is_mouse_button_pressed():
-		pass
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		sword.attack()
+
+func manage_death():
+	animated_sprite.play("Death")
+	velocity.x = 0
+	velocity.y += 30

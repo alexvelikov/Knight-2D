@@ -6,7 +6,8 @@ extends Node2D
 @onready var health_manager: HealthManager = $HealthManager
 @onready var hitbox_manager: HitboxManager = $HitboxManager
 
-@export var speed := 60
+@export var speed := 60.0
+@export var damage := 10.0
 var direction = 1
 
 

@@ -13,10 +13,6 @@ func _ready() -> void:
 	animation.animation_finished.connect(_on_swing_animation_finished)
 
 
-func _physics_process(delta):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		attack()
-		
 func set_flip_h(is_flipped: bool):
 	animation.flip_h = is_flipped
 
