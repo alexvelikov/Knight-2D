@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dfpnobf4kn3yy"]
+
+[ext_resource type="Script" uid="uid://bcn7p7r1pn8e3" path="res://scripts/health_bar.gd" id="1_m7ell"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nbvc"]
+bg_color = Color(0.18072194, 0.18072197, 0.18072191, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bvlm"]
+bg_color = Color(0.7046392, 0.7046392, 0.70463914, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3kqx"]
+bg_color = Color(0.1680183, 0.1680183, 0.1680183, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1ka0"]
+bg_color = Color(0.88290143, 0.14733289, 0, 1)
+
+[node name="HealthBar" type="Control" unique_id=1673371803]
+custom_minimum_size = Vector2(40, 6)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7ell")
+
+[node name="DelaiedBar" type="ProgressBar" parent="." unique_id=1418607039]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 27.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1nbvc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1bvlm")
+value = 60.0
+show_percentage = false
+
+[node name="MainBar" type="ProgressBar" parent="." unique_id=325304872]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 27.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_y3kqx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_v1ka0")
+value = 60.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=479598718]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

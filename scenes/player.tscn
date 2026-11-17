@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bycxbsceijgmn" path="res://scenes/sword.tscn" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/Components/health_manager.tscn" id="4_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://c6oorpt8h1g2i" path="res://scenes/Components/hitbox_manager.tscn" id="5_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://dfpnobf4kn3yy" path="res://scenes/health_bar.tscn" id="6_tuyoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("1_3vyb7")
@@ -238,3 +239,10 @@ shape = SubResource("RectangleShape2D_v1ka0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1244030536]
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_v1ka0")
+
+[node name="HealthBar" parent="." unique_id=1673371803 instance=ExtResource("6_tuyoq")]
+offset_left = -10.0
+offset_top = -23.0
+offset_right = 30.0
+offset_bottom = -17.0
+scale = Vector2(0.5, 0.15)

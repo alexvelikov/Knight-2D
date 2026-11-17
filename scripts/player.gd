@@ -1,10 +1,11 @@
 extends CharacterBody2D
-#fuck
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sword: Area2D = $Sword
 @onready var health_manager: HealthManager = $HealthManager
 @onready var hitbox_manager: HitboxManager = $HitboxManager
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var health_bar: Control = $HealthBar
 
 @export var SPEED = 150.0
 @export var JUMP_VELOCITY = -300.0
@@ -15,7 +16,10 @@ const swordPositionY = -9
 
 func _ready() -> void:
 	hitbox_manager.took_damage.connect(health_manager.take_damage)
+	hitbox_manager.took_damage.connect(health_bar.reduce)
 	health_manager.died.connect(manage_death)
+	
+	health_bar.update(health_manager.health, health_manager.max_health)
 
 func _physics_process(delta: float) -> void:
 	manage_movement()

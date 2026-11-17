@@ -5,18 +5,24 @@ extends Node2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_manager: HealthManager = $HealthManager
 @onready var hitbox_manager: HitboxManager = $HitboxManager
+@onready var health_bar: Control = $HealthBar
 
 @export var speed := 60.0
 @export var damage := 10.0
+var alive := true
 var direction = 1
 
 
 func _ready() -> void:
 	hitbox_manager.took_damage.connect(health_manager.take_damage)
+	hitbox_manager.took_damage.connect(health_bar.reduce)
 	health_manager.died.connect(manage_death)
+	
+	health_bar.update(health_manager.health, health_manager.max_health)
 
 func _process(delta: float) -> void:
-	move(delta)
+	if alive:
+		move(delta)
 	
 func move(delta: float):
 	if not ray_cast_left.is_colliding():
@@ -28,4 +34,8 @@ func move(delta: float):
 	position.x += speed * delta * direction
 	
 func manage_death():
+	alive = false
+	animated_sprite.play("Death")
+	await animated_sprite.animation_finished
+	await get_tree().create_timer(0.5).timeout
 	queue_free()

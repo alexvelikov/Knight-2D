@@ -4,7 +4,9 @@ extends Node2D
 @onready var ground_check_left: RayCast2D = $GroundCheckers/GroundCheckLeft
 @onready var health_manager: HealthManager = $HealthManager
 @onready var hitbox_manager: HitboxManager = $HitboxManager
-@onready var animation: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_bar: Control = $HealthBar
+
 var direction := 1
 @export var speed := 90.0
 @export var damage := 10.0
@@ -16,13 +18,16 @@ func _ready() -> void:
 	$PlayerDetectionArea.body_entered.connect(_on_body_entered)
 	$PlayerDetectionArea.body_exited.connect(_on_body_exited)
 	hitbox_manager.took_damage.connect(health_manager.take_damage)
+	hitbox_manager.took_damage.connect(health_manager.take_damage)
+	hitbox_manager.took_damage.connect(health_bar.reduce)
 	health_manager.died.connect(manage_death)
+	health_bar.update(health_manager.health, health_manager.max_health)
 
 func set_flip_h(direction: float):
 	if direction > 0:
-		animation.flip_h = false
+		animated_sprite.flip_h = false
 	elif direction < 0:
-		animation.flip_h = true
+		animated_sprite.flip_h = true
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -70,4 +75,7 @@ func floor_ends() -> bool:
 	return true
 
 func manage_death():
+	animated_sprite.play("Death")
+	await animated_sprite.animation_finished
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
