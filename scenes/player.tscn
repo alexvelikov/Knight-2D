@@ -223,12 +223,12 @@ autoplay = "Idle"
 frame_progress = 0.51200354
 
 [node name="Sword" parent="." unique_id=1918250943 instance=ExtResource("3_qhqgy")]
-position = Vector2(9, -9)
+position = Vector2(10, -7.5)
 scale = Vector2(0.45, 0.45)
 
 [node name="HealthManager" parent="." unique_id=1913274883 instance=ExtResource("4_qlg0r")]
-health = 20.0
-max_health = 20.0
+health = 30.0
+max_health = 30.0
 
 [node name="HitboxManager" parent="." unique_id=484728058 instance=ExtResource("5_tuyoq")]
 target_group = &"enemy"

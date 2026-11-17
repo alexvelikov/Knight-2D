@@ -75,11 +75,11 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Swing",
-"speed": 15.0
+"speed": 18.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suk2g"]
-size = Vector2(27.300018, 29.166695)
+size = Vector2(33.300026, 31.25003)
 
 [node name="Sword" type="Area2D" unique_id=1918250943 groups=["weapon"]]
 scale = Vector2(1, 1.4399996)
@@ -95,9 +95,11 @@ scale = Vector2(0.14760147, 0.117019676)
 sprite_frames = SubResource("SpriteFrames_suk2g")
 animation = &"Swing"
 autoplay = "Idle"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1710879636]
-position = Vector2(0.35, 0)
+position = Vector2(3.3500004, -1.0416671)
 scale = Vector2(0.9999992, 0.9999993)
 shape = SubResource("RectangleShape2D_suk2g")
 

@@ -6,6 +6,7 @@ extends Node2D
 @onready var health_manager: HealthManager = $HealthManager
 @onready var hitbox_manager: HitboxManager = $HitboxManager
 @onready var health_bar: Control = $HealthBar
+@onready var loot_dropper: LootDropper = $LootDropper
 
 @export var speed := 60.0
 @export var damage := 10.0
@@ -38,4 +39,5 @@ func manage_death():
 	animated_sprite.play("Death")
 	await animated_sprite.animation_finished
 	await get_tree().create_timer(0.5).timeout
+	loot_dropper.drop()
 	queue_free()

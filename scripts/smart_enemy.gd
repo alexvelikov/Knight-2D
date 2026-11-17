@@ -7,6 +7,7 @@ extends Node2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: Control = $HealthBar
 @onready var healing_manager: Node = $HealingManager
+@onready var loot_dropper: LootDropper = $LootDropper
 
 var direction := 1
 @export var speed := 90.0
@@ -84,4 +85,5 @@ func manage_death():
 	animated_sprite.play("Death")
 	await animated_sprite.animation_finished
 	await get_tree().create_timer(0.5).timeout
+	loot_dropper.drop()
 	queue_free()

@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/ai_assistant_hub/plugin.cfg", "res://add
 player=""
 enemy=""
 weapon=""
+coin_container=""
 
 [input]
 

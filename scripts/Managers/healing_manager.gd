@@ -5,6 +5,7 @@ extends Node
 @export var heal_delay := 10
 @export var heal_amount := 5
 @export var health_manager: HealthManager
+@export var has_healthbar := true
 @export var health_bar: HealthBar
 var hit := false
 
@@ -22,5 +23,6 @@ func start_healing():
 			hit = false
 			break
 		health_manager.heal(heal_amount)
-		health_bar.increase(heal_amount)
+		if has_healthbar:
+			health_bar.increase(heal_amount)
 		await get_tree().create_timer(2).timeout
