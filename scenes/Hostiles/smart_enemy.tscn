@@ -100,8 +100,8 @@ autoplay = "Idle"
 
 [node name="BeehaveTree" parent="." unique_id=2125235702 node_paths=PackedStringArray("blackboard", "actor") instance=ExtResource("3_k8uyo")]
 actor_node_path = NodePath("../..")
-blackboard = NodePath("@Node@210634")
-actor = NodePath("..")
+blackboard = NodePath("@Node@41758")
+actor = NodePath("../..")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1934309123]
 collision_mask = 2
@@ -113,10 +113,10 @@ shape = SubResource("CircleShape2D_k8uyo")
 [node name="GroundCheckers" type="Node2D" parent="." unique_id=917529838]
 
 [node name="GroundCheckRight" type="RayCast2D" parent="GroundCheckers" unique_id=1746942369]
-position = Vector2(4, 0)
+position = Vector2(2, 0)
 
 [node name="GroundCheckLeft" type="RayCast2D" parent="GroundCheckers" unique_id=1993463387]
-position = Vector2(-4, 0)
+position = Vector2(-2, 0)
 
 [node name="HealthManager" parent="." unique_id=1913274883 instance=ExtResource("5_lbkh4")]
 health = 30.0

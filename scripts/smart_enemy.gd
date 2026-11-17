@@ -48,6 +48,7 @@ func below_crit_health() -> bool:
 	return false
 
 func idle() -> void:
+	position.x += direction * -1
 	pass
 
 func step_towards_target():
