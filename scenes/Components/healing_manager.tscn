@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://x5h8hmnotbbu"]
+
+[ext_resource type="Script" uid="uid://33kf1vp1fpta" path="res://scripts/Managers/healing_manager.gd" id="1_xwo2w"]
+
+[node name="HealingManager" type="Node" unique_id=1181567991]
+script = ExtResource("1_xwo2w")
+
+[node name="Timer" type="Timer" parent="." unique_id=613651127]

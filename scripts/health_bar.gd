@@ -1,4 +1,5 @@
 extends Control
+class_name HealthBar
 
 @onready var main_bar: ProgressBar = $MainBar
 @onready var delaied_bar: ProgressBar = $DelaiedBar
@@ -27,6 +28,10 @@ func update(current: float, maximum: float):
 func reduce(amount: float):
 	main_bar.value -= amount
 	timer.start()
+
+func increase(amount: float):
+	main_bar.value += amount
+	delaied_bar.value += amount
 
 func _on_timer_timeout() -> void:
 	delaied_bar.value = main_bar.value
