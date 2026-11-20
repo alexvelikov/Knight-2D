@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dnebt6ycljc7e" path="res://scripts/simple_enemy.gd" id="1_n6pvg"]
 [ext_resource type="Texture2D" uid="uid://b0v0o6sesk01x" path="res://assets/sprites/slime_green.png" id="1_p2gj0"]
-[ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/Components/health_manager.tscn" id="4_3kc4b"]
+[ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/components/health_manager.tscn" id="4_3kc4b"]
 [ext_resource type="PackedScene" uid="uid://dfpnobf4kn3yy" path="res://scenes/health_bar.tscn" id="5_3kc4b"]
-[ext_resource type="PackedScene" uid="uid://c6oorpt8h1g2i" path="res://scenes/Components/hitbox_manager.tscn" id="5_15ncu"]
-[ext_resource type="PackedScene" uid="uid://csfin4mw4p2hy" path="res://scenes/Components/loot_dropper.tscn" id="6_d0om5"]
+[ext_resource type="PackedScene" uid="uid://c6oorpt8h1g2i" path="res://scenes/components/hitbox_manager.tscn" id="5_15ncu"]
+[ext_resource type="PackedScene" uid="uid://csfin4mw4p2hy" path="res://scenes/components/loot_dropper.tscn" id="6_d0om5"]
 [ext_resource type="PackedScene" uid="uid://bb6sniv772jj5" path="res://scenes/coin.tscn" id="7_ww306"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suk2g"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csfin4mw4p2hy"]
 
-[ext_resource type="Script" uid="uid://b3xvdmi2gx5u1" path="res://scripts/Managers/loot_dropper.gd" id="1_0ij25"]
+[ext_resource type="Script" uid="uid://b3xvdmi2gx5u1" path="res://scripts/managers/loot_dropper.gd" id="1_0ij25"]
 
 [node name="LootDropper" type="Node2D" unique_id=1676296197]
 script = ExtResource("1_0ij25")

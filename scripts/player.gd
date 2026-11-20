@@ -62,7 +62,7 @@ func manage_movement():
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 func manage_attacking():
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or Input.is_key_pressed(KEY_SPACE):
 		sword.attack()
 
 func manage_death():

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bycxbsceijgmn"]
 
 [ext_resource type="Script" uid="uid://b6u4tl467m16p" path="res://scripts/sword.gd" id="1_n355p"]
-[ext_resource type="Script" uid="uid://cu001argnv5ui" path="res://scenes/sword_timer.gd" id="2_k5whp"]
 [ext_resource type="Texture2D" uid="uid://nofymco0jodd" path="res://assets/sprites/sword.png" id="2_s4ec8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xccsb"]
@@ -88,7 +87,6 @@ script = ExtResource("1_n355p")
 [node name="SwingCooldown" type="Timer" parent="." unique_id=761896745]
 wait_time = 0.5
 one_shot = true
-script = ExtResource("2_k5whp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1256815520]
 scale = Vector2(0.14760147, 0.117019676)
