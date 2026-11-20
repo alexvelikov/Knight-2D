@@ -261,13 +261,13 @@ Space: Jump"
 
 [node name="Enemies" type="Node" parent="." unique_id=1014122291]
 
-[node name="SimpleEnemy" parent="Enemies" unique_id=366112264 instance=ExtResource("9_0tnpc")]
+[node name="GreenSlime1" parent="Enemies" unique_id=366112264 instance=ExtResource("9_0tnpc")]
 position = Vector2(312, -43)
 
-[node name="SimpleEnemy2" parent="Enemies" unique_id=2044583025 instance=ExtResource("9_0tnpc")]
+[node name="GreenSlime2" parent="Enemies" unique_id=2044583025 instance=ExtResource("9_0tnpc")]
 position = Vector2(424, -183)
 
-[node name="SmartEnemy" parent="Enemies" unique_id=2033534830 instance=ExtResource("10_vtaks")]
+[node name="RedSlime" parent="Enemies" unique_id=2033534830 instance=ExtResource("10_vtaks")]
 position = Vector2(-370, -44)
 
 [node name="Platforms" type="Node2D" parent="." unique_id=1963315386]

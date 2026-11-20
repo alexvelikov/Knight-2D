@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c726p72y286o" path="res://scripts/enemies/implementations/red_slime.gd" id="1_k8uyo"]
 [ext_resource type="PackedScene" uid="uid://c24w37hs8au4d" path="res://scenes/hostiles/ai/red_slime_ai.tscn" id="3_k8uyo"]
 [ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/components/health_manager.tscn" id="5_lbkh4"]
-[ext_resource type="PackedScene" uid="uid://dfpnobf4kn3yy" path="res://scenes/health_bar.tscn" id="6_lbkh4"]
+[ext_resource type="PackedScene" uid="uid://dfpnobf4kn3yy" path="res://scenes/components/health_bar.tscn" id="6_lbkh4"]
 [ext_resource type="PackedScene" uid="uid://c6oorpt8h1g2i" path="res://scenes/components/hitbox_manager.tscn" id="6_obeuo"]
 [ext_resource type="PackedScene" uid="uid://x5h8hmnotbbu" path="res://scenes/components/healing_manager.tscn" id="7_obeuo"]
 [ext_resource type="PackedScene" uid="uid://csfin4mw4p2hy" path="res://scenes/components/loot_dropper.tscn" id="8_eg8bj"]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bycxbsceijgmn" path="res://scenes/sword.tscn" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/components/health_manager.tscn" id="4_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://c6oorpt8h1g2i" path="res://scenes/components/hitbox_manager.tscn" id="5_tuyoq"]
-[ext_resource type="PackedScene" uid="uid://dfpnobf4kn3yy" path="res://scenes/health_bar.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://dfpnobf4kn3yy" path="res://scenes/components/health_bar.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://x5h8hmnotbbu" path="res://scenes/components/healing_manager.tscn" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
