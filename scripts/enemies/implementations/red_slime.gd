@@ -12,8 +12,6 @@ extends Node2D
 var direction := 1
 @export var speed := 90.0
 @export var damage := 10.0
-@export var heal_amount := 5
-@export var heal_delay := 10
 var target_in_range: Node2D = null
 
 

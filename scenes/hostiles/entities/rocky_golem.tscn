@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ibctsswcjsbe" path="res://scripts/enemies/implementations/rocky_golem.gd" id="1_fif1x"]
 [ext_resource type="Texture2D" uid="uid://olodsipfj5ky" path="res://assets/sprites/rock_golem.png" id="1_o662x"]
+[ext_resource type="PackedScene" uid="uid://x5h8hmnotbbu" path="res://scenes/components/healing_manager.tscn" id="3_ga27b"]
+[ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/components/health_manager.tscn" id="4_rrnb8"]
+[ext_resource type="PackedScene" uid="uid://c6oorpt8h1g2i" path="res://scenes/components/hitbox_manager.tscn" id="5_wa5w4"]
+[ext_resource type="PackedScene" uid="uid://csfin4mw4p2hy" path="res://scenes/components/loot_dropper.tscn" id="6_u3nbt"]
+[ext_resource type="PackedScene" uid="uid://bb6sniv772jj5" path="res://scenes/coin.tscn" id="7_rrnb8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fif1x"]
 atlas = ExtResource("1_o662x")
@@ -232,9 +237,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1ka0"]
+radius = 7.5
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1ka0"]
+size = Vector2(13.999999, 18)
+
 [node name="RockyGolem" type="Node2D" unique_id=1120842793]
 script = ExtResource("1_fif1x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1465529325]
+position = Vector2(0, 2.2)
+scale = Vector2(0.098265894, 0.092165895)
 sprite_frames = SubResource("SpriteFrames_suk2g")
 animation = &"Walking"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2087793370]
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox" unique_id=685191912]
+position = Vector2(0, -0.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_v1ka0")
+
+[node name="HealingManager" parent="." unique_id=1181567991 node_paths=PackedStringArray("health_manager") instance=ExtResource("3_ga27b")]
+health_manager = NodePath("../HealthManager")
+
+[node name="HealthManager" parent="." unique_id=1913274883 instance=ExtResource("4_rrnb8")]
+health = 50.0
+max_health = 50.0
+crit_health = 20.0
+
+[node name="HitboxManager" parent="." unique_id=484728058 instance=ExtResource("5_wa5w4")]
+target_group = &"weapon"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxManager" unique_id=75597910]
+position = Vector2(0, -0.99999976)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_v1ka0")
+
+[node name="LootDropper" parent="." unique_id=1676296197 instance=ExtResource("6_u3nbt")]
+loot = ExtResource("7_rrnb8")

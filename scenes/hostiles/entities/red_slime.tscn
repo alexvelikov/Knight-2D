@@ -88,7 +88,7 @@ radius = 75.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suk2g"]
 size = Vector2(12, 12)
 
-[node name="SmartEnemy" type="Node2D" unique_id=1046078415]
+[node name="SmartEnemy" type="Node2D" unique_id=1046078415 groups=["enemy"]]
 script = ExtResource("1_k8uyo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=330820711]
@@ -102,7 +102,7 @@ autoplay = "Idle"
 
 [node name="AI" parent="." unique_id=2125235702 node_paths=PackedStringArray("blackboard") instance=ExtResource("3_k8uyo")]
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@35066")
+blackboard = NodePath("@Node@36222")
 
 [node name="PlayerDetectionArea" type="Area2D" parent="." unique_id=1643523812]
 collision_mask = 2
