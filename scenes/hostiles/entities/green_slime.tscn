@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://klao8wwyg3fl"]
 
-[ext_resource type="Script" uid="uid://dnebt6ycljc7e" path="res://scripts/simple_enemy.gd" id="1_n6pvg"]
+[ext_resource type="Script" uid="uid://dnebt6ycljc7e" path="res://scripts/enemies/implementations/green_slime.gd" id="1_n6pvg"]
 [ext_resource type="Texture2D" uid="uid://b0v0o6sesk01x" path="res://assets/sprites/slime_green.png" id="1_p2gj0"]
 [ext_resource type="PackedScene" uid="uid://gcxwntwm5j2x" path="res://scenes/components/health_manager.tscn" id="4_3kc4b"]
 [ext_resource type="PackedScene" uid="uid://dfpnobf4kn3yy" path="res://scenes/health_bar.tscn" id="5_3kc4b"]
