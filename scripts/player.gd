@@ -3,20 +3,19 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sword: Area2D = $Sword
 @onready var health_manager: HealthManager = $HealthManager
-@onready var hitbox_manager: HitboxManager = $HitboxManager
-@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var hurtbox_manager: HurtboxManager = $HurtboxManager
+@onready var collision_shape_2d: CollisionShape2D = $PlayerShape
 @onready var health_bar: Control = $HealthBar
 @onready var healing_manager: Node = $HealingManager
 
 @export var SPEED := 150.0
 @export var JUMP_VELOCITY := -300.0
-var is_alive:bool
 const swordPositionX = 9
 const swordPositionY = -9
 
 
 func _ready() -> void:
-	hitbox_manager.took_damage.connect(take_damage)
+	hurtbox_manager.took_damage.connect(take_damage)
 	health_manager.died.connect(manage_death)
 	
 	health_bar.update(health_manager.health, health_manager.max_health)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://fa743lxl5jmr"]
+
+[ext_resource type="Script" uid="uid://cw7na0utba0eo" path="res://scripts/managers/movement_limits.gd" id="1_pxk2t"]
+
+[node name="MovementLimits" type="Node2D" unique_id=892826159]
+script = ExtResource("1_pxk2t")

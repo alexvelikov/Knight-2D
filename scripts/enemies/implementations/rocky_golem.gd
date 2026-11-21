@@ -1,11 +1,12 @@
 extends Node2D
 
-@onready var hitbox_manager: HitboxManager = $HitboxManager
+@onready var hurtbox_manager: HurtboxManager = $HurtboxManager
 @onready var health_manager: HealthManager = $HealthManager
 @onready var health_bar: HealthBar = $HealthBar
 @onready var healing_manager: Node = $HealingManager
 @onready var loot_dropper: LootDropper = $LootDropper
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var movement_limits: Node2D = $MovementLimits
 
 var direction := 1
 @export var speed := 90.0
@@ -14,7 +15,7 @@ var target_in_range: Node2D
 
 
 func _ready() -> void:
-	hitbox_manager.took_damage.connect(take_damage)
+	hurtbox_manager.took_damage.connect(take_damage)
 	health_manager.died.connect(manage_death)
 	health_bar.update(health_manager.health, health_manager.max_health)
 
@@ -63,9 +64,9 @@ func patrol() -> void:
 	set_flip_h(direction)
 	
 func reaching_limit() -> bool:
-	if ground_check_left .is_colliding() || ground_check_right.is_colliding():
-		return false
-	return true
+	if movement_limits.any_raycasters_trigered():
+		return true
+	return false
 
 func manage_death():
 	animated_sprite.play("Death")

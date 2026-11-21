@@ -5,8 +5,8 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	Engine.time_scale = 0.2
-	body.is_alive = false;
-	body.get_node("CollisionShape2D").queue_free()
+	var body_to_kill = body.get_node("PlayerShape")
+	body_to_kill.queue_free()
 	timer.start()
 
 func _on_timer_timeout() -> void:

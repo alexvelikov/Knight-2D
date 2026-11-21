@@ -4,7 +4,7 @@ extends Node2D
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_manager: HealthManager = $HealthManager
-@onready var hitbox_manager: HitboxManager = $HitboxManager
+@onready var hurtbox_manager: HurtboxManager = $HurtboxManager
 @onready var health_bar: Control = $HealthBar
 @onready var loot_dropper: LootDropper = $LootDropper
 
@@ -15,8 +15,8 @@ var direction = 1
 
 
 func _ready() -> void:
-	hitbox_manager.took_damage.connect(health_manager.take_damage)
-	hitbox_manager.took_damage.connect(health_bar.reduce)
+	hurtbox_manager.took_damage.connect(health_manager.take_damage)
+	hurtbox_manager.took_damage.connect(health_bar.reduce)
 	health_manager.died.connect(manage_death)
 	
 	health_bar.update(health_manager.health, health_manager.max_health)

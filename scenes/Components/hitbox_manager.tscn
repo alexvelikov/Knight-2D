@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://c6oorpt8h1g2i"]
+[gd_scene format=3 uid="uid://dok8x6t13ys6i"]
 
-[ext_resource type="Script" uid="uid://ui7ueu2viyxd" path="res://scripts/managers/hitbox_manager.gd" id="1_xmvdx"]
+[sub_resource type="GDScript" id="GDScript_hcb7k"]
+script/source = "extends Area2D
 
-[node name="HitboxManager" type="Area2D" unique_id=484728058]
-script = ExtResource("1_xmvdx")
+@export var damage: float
+"
+
+[node name="HitboxManager" type="Area2D" unique_id=2115133125]
+script = SubResource("GDScript_hcb7k")
