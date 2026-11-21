@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite: AnimatedSprite2D = $Visuals/AnimatedSprite2D
 @onready var sword: Area2D = $Sword
 @onready var health_manager: HealthManager = $HealthManager
 @onready var hurtbox_manager: HurtboxManager = $HurtboxManager
@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var healing_manager: Node = $HealingManager
 @onready var landing_dust: GPUParticles2D = $LandingDust
 @onready var running_dust: GPUParticles2D = $RunningDust
+@onready var visuals: Node2D = $Visuals
 
 @export var SPEED := 150.0
 @export var JUMP_VELOCITY := -300.0
@@ -71,7 +72,12 @@ func manage_movement(delta: float):
 	move_and_slide()
 	
 	manage_particles(was_on_floor)
-	update_squash_stretch(delta)
+	
+	if not was_on_floor and is_on_floor():
+		play_landing_squash()
+
+	if not (landing_tween and landing_tween.is_running()):
+		update_squash_stretch(delta)
 
 func manage_particles(was_on_floor: bool):
 	if velocity.x > 0:
@@ -94,10 +100,24 @@ func update_squash_stretch(delta: float) -> void:
 		
 		target_scale = Vector2(1.0 - stretch,1.0 + stretch)
 	
-	animated_sprite.scale = animated_sprite.scale.lerp(
+	visuals.scale = visuals.scale.lerp(
 		target_scale,
 		min(RECOVERY_SPEED * delta, 1.0)
 	)
+
+func play_landing_squash() -> void:
+	if landing_tween and landing_tween.is_running():
+		landing_tween.kill()
+
+	visuals.scale = LAND_SCALE
+
+	landing_tween = create_tween()
+	landing_tween.tween_property(
+		visuals,
+		"scale",
+		NORMAL_SCALE,
+		0.15
+	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func manage_attacking():
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or Input.is_key_pressed(KEY_SPACE):
