@@ -78,7 +78,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_suk2g"]
-size = Vector2(33.300026, 31.25003)
+size = Vector2(61.000046, 31.25003)
 
 [node name="Sword" type="Area2D" unique_id=1918250943 groups=["weapon"]]
 scale = Vector2(1, 1.4399996)
@@ -97,7 +97,7 @@ frame = 8
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1710879636]
-position = Vector2(3.3500004, -1.0416671)
+position = Vector2(-10.499999, -1.0416671)
 scale = Vector2(0.9999992, 0.9999993)
 shape = SubResource("RectangleShape2D_suk2g")
 
