@@ -1,8 +1,10 @@
 extends Area2D
 
+@onready var pickup_animation: AnimationPlayer = $PickupAnimation
+
 signal collected
 
 
 func _on_body_entered(body: Node2D) -> void:
 	collected.emit()
-	queue_free()
+	pickup_animation.play("pickup")

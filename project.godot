@@ -15,10 +15,15 @@ run/main_scene="uid://yicge48108e0"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://doob7es4c3ll4"
+
 [autoload]
 
 BeehaveGlobalMetrics="*uid://c3ktl6ontsdt7"
 BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
+Music="*uid://bn5qpvd36wasp"
 
 [display]
 
